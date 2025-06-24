@@ -1,0 +1,479 @@
+
+/* Custom styles on top of Bootstrap */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #0d1117; /* Dark background */
+    color: #c9d1d9; /* Light text */
+    line-height: 1.5;
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body.light_mode {
+    background-color: #ffffff; /* Light mode background */
+    color: #0d1117; /* Dark text */
+}
+
+/* Navbar */
+.navbar {
+    background-color: #161b22; /* Darker navbar */
+    border-bottom: 1px solid #21262d;
+    padding: 1rem 2rem;
+}
+
+body.light_mode .navbar {
+    background-color: #f6f8fa;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #58a6ff !important; /* Accent color */
+}
+
+.btn-theme-toggle {
+    color: #c9d1d9;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    transition: color 0.3s;
+}
+
+.btn-theme-toggle:hover {
+    color: #58a6ff;
+}
+
+/* Header (Welcome Section) */
+.header {
+    text-align: center;
+    padding: 2rem;
+}
+
+.header.hide-header {
+    display: none;
+}
+
+/* Fix header text visibility */
+.header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #ffffff; /* Ensure visibility in dark mode */
+}
+
+.header h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #8b949e; /* Default for dark mode */
+}
+
+body.light_mode .header h1 {
+    color: #0d1117; /* Dark text for light mode */
+}
+
+body.light_mode .header h2 {
+    color: #6e7681; /* Slightly darker for light mode */
+}
+
+.suggests .card {
+    background-color: #21262d;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+body.light_mode .suggests .card {
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+}
+
+.suggests .card:hover {
+    background-color: #30363d;
+}
+
+body.light_mode .suggests .card:hover {
+    background-color: #e1e4e8;
+}
+
+.suggests .card-body {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+}
+
+.suggests .card-text {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.suggests i {
+    color: #58a6ff;
+}
+
+/* Chat Section */
+.chats {
+    padding: 1rem;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.message {
+    margin-bottom: 1.5rem;
+    position: relative; /* For positioning icons */
+}
+
+.message__content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.message__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.message__text {
+    background-color: #21262d;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    word-wrap: break-word;
+    max-width: 80%;
+    margin-bottom: 1rem; /* Add space for copy icon below */
+}
+
+body.light_mode .message__text {
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+}
+
+.message--outgoing .message__text {
+    background-color: #58a6ff; /* User message accent */
+    color: #fff;
+}
+
+.message--incoming {
+    position: relative;
+}
+
+.message__icon,
+.message__edit-icon {
+    cursor: pointer;
+    color: #8b949e;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.message__icon {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.message__edit-icon {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
+.message__icon:hover,
+.message__edit-icon:hover {
+    color: #58a6ff;
+}
+
+.message__loading-indicator {
+    display: flex;
+    gap: 0.4rem;
+    padding: 0.5rem 0;
+}
+
+.message__loading-bar {
+    width: 6px;
+    height: 18px;
+    background-color: #58a6ff;
+    border-radius: 3px;
+    animation: loading 1s infinite;
+}
+
+.message__loading-bar:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.message__loading-bar:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes loading {
+    0% { transform: scaleY(1); }
+    50% { transform: scaleY(0.4); }
+    100% { transform: scaleY(1); }
+}
+
+/* Prompt Section */
+.prompt {
+    padding: 1rem;
+    background-color: #161b22;
+    border-top: 1px solid #21262d;
+    position: sticky;
+    bottom: 0;
+}
+
+body.light_mode .prompt {
+    background-color: #f6f8fa;
+    border-top: 1px solid #e1e4e8;
+}
+
+.prompt__form {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.prompt__input-wrapper {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.prompt__form-input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+body.light_mode .prompt__form-input {
+    background-color: #fff;
+    border-color: #d0d7de;
+}
+
+.prompt__form-input:focus {
+    border-color: #58a6ff;
+    box-shadow: none;
+}
+
+.prompt__form-button {
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+
+#sendButton {
+    background-color: #58a6ff;
+    border-color: #58a6ff;
+}
+
+#sendButton:hover {
+    background-color: #1f6feb;
+    border-color: #1f6feb;
+}
+
+#deleteButton {
+    background-color: #21262d;
+    border-color: #21262d;
+}
+
+#deleteButton:hover {
+    background-color: #30363d;
+    border-color: #30363d;
+}
+
+body.light_mode #deleteButton {
+    background-color: #f6f8fa;
+    border-color: #d0d7de;
+}
+
+body.light_mode #deleteButton:hover {
+    background-color: #e1e4e8;
+    border-color: #e1e4e8;
+}
+
+.prompt__disclaim {
+    font-size: 0.8rem;
+    color: #8b949e;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/* Code Blocks */
+pre {
+    position: relative;
+    background-color: #161b22;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+body.light_mode pre {
+    background-color: #f6f8fa;
+}
+
+.code__language-label {
+    position: absolute;
+    top: 0.5rem;
+    right: 3rem;
+    background-color: #30363d;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #c9d1d9;
+}
+
+body.light_mode .code__language-label {
+    background-color: #d0d7de;
+    color: #0d1117;
+}
+
+.code__copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    color: #8b949e;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.code__copy-btn:hover {
+    color: #58a6ff;
+}
+
+/*thêm*/
+.message__content {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.message__text {
+    margin-bottom: 1rem; /* Add space for copy icon below */
+}
+
+.message__icon {
+    display: block;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+/* Fix dark mode text visibility */
+body:not(.light_mode) .header__title h1,
+body:not(.light_mode) .header__title h2 {
+    color: #ffffff;
+}
+
+/* Light mode adjustments */
+body.light_mode .header__title h1,
+body.light_mode .header__title h2 {
+    color: #000000;
+}
+
+/*thêm*/
+/* Suggestion cards */
+.suggests .card {
+    background-color: #21262d;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+body.light_mode .suggests .card {
+    background-color: #ffffff; /* White background in light mode */
+    border: 1px solid #e1e4e8;
+}
+
+.suggests .card:hover {
+    background-color: #30363d;
+}
+
+body.light_mode .suggests .card:hover {
+    background-color: #e1e4e8;
+}
+
+.suggests .card-body {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+}
+
+.suggests .card-text {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #ffffff; /* White text in dark mode */
+}
+
+body.light_mode .suggests .card-text {
+    color: #000000; /* Black text in light mode */
+}
+
+.suggests i {
+    color: #58a6ff;
+}
+
+/* Message text styling */
+.message__text {
+    background-color: #21262d;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    word-wrap: break-word;
+    max-width: 80%;
+    margin-bottom: 1rem; /* Add space for copy icon below */
+    color: #c9d1d9; /* Explicitly set text color for dark mode */
+}
+
+body.light_mode .message__text {
+    background-color: #ffffff; /* White background in light mode */
+    border: 1px solid #e1e4e8;
+    color: #000000; /* Black text in light mode */
+}
+
+.message--outgoing .message__text {
+    background-color: #58a6ff; /* User message accent */
+    color: #ffffff; /* White text for outgoing messages in both modes */
+}
+
+
+
+
+.image-slider {
+    position: relative;
+    width: 100%;
+    max-width: 400px;         /* Kích thước tối đa */
+    aspect-ratio: 1 / 1;       /* Hình vuông */
+    border-radius: 12px;       /* Bo góc nhẹ */
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng nhẹ */
+    margin: 0 auto;            /* Canh giữa nếu cần */
+}
+
+.slider-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* Đảm bảo ảnh không bị méo */
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    border-radius: 12px;       /* Bo góc đồng bộ */
+}
+
+.slider-img.active {
+    opacity: 1;
+    z-index: 1;
+}
+
