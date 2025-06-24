@@ -44,7 +44,7 @@ class Config:
 
 
 <p align="center">
-  <a href="https://drive.google.com/drive/u/5/folders/1i3of4oT7HQpjEzJ-yGH3thphVVo0adVp" target="_blank">
+  <a href="https://drive.google.com/file/d/1tQPYtYpEwiGcSXFBB2kiORJkJ0ddF6YQ/view?usp=sharing" target="_blank">
     <img src="https://github.com/HitDrama/AI-Chatbot-Flask/blob/main/static/imgs/home.png"
          alt="Xem Video Demo"
          width="600"
